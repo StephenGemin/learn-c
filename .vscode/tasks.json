@@ -10,7 +10,7 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/build/${fileBasenameNoExtension}"
             ],
             "group": { "kind": "build", "isDefault": true },
             "problemMatcher": ["$gcc"],
@@ -21,10 +21,10 @@
                     "-g",
                     "${file}",
                     "-o",
-                    "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                    "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe"
                 ],
                 "options": {
-                    "cwd": "C:\\msys64\\usr\\bin"
+                    "cwd": "."
                 },
                 "detail": "Compiler: C:\\msys64\\usr\\bin\\gcc.exe"
             },
@@ -35,12 +35,13 @@
                     "-g",
                     "${file}",
                     "-o",
-                    "${fileDirname}/bin/${fileBasenameNoExtension}",
+                    "${workspaceFolder}/build/${fileBasenameNoExtension}",
 					"&&",
-                    "${fileDirname}/bin/${fileBasenameNoExtension}"
+                    "${workspaceFolder}/build/${fileBasenameNoExtension}",
+                    "-I${workspaceFolder}/src"
                 ],
                 "options": {
-                    "cwd": "/usr/bin"
+                    "cwd": "."
                 },
                 "detail": "Compiler: gcc"
             }
