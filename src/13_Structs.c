@@ -18,9 +18,7 @@ int main(int argc, char const *argv[])
   strcpy(player2.name, "Bar");
   player2.score = 8;
 
-  printf("foobar\n");
   printf("Player1 name=%s; score=%d\n", player1.name, player1.score);
   printf("Player2 name=%s; score=%d\n", player2.name, player2.score);
-  printf("%d\n");
   return 0;
 }
