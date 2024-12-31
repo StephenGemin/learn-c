@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
   printf("Guess a number between %d and %d\n", MIN, MAX);
   do
   {
-    printf("Enter a guess:", MIN, MAX);
+    printf("Enter a guess: ");
     scanf("%d", &guess);
     if (guess > answer)
     {

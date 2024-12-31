@@ -8,7 +8,7 @@ int main(int argc, char const *argv[])
   prices[0] = -1;
   prices[9] = 9;
   prices[5] = 'C';  // converts to ascii decimal
-  for (int i = 0; i < sizeof(prices)/sizeof(prices[0]) ; i++)
+  for (int i = 0; i < (int)(sizeof(prices)/sizeof(prices[0])) ; i++)
   {
     printf("%f\n", prices[i]);
   }  

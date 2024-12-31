@@ -20,6 +20,7 @@ int main()
 
   printf("Hello %s\n", name);
   printf("You are %d years old\n", age);
-  printf("Your average grade is %c", grade);
+  printf("Your average grade is %c\n", grade);
+  printf("You have $%.2f\n", money);
   return 0;
 }

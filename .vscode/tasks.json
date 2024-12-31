@@ -34,12 +34,10 @@
                     "-fdiagnostics-color=always",
                     "-g",
                     "${file}",
-                    "${workspaceFolder}/src/project_paths.c",
+                    "${workspaceFolder}/src/paths.c",
                     "-o",
                     "${workspaceFolder}/build/${fileBasenameNoExtension}",
                     "-I${workspaceFolder}/src",
-                    "&&",
-                    "${workspaceFolder}/build/${fileBasenameNoExtension}"
                 ],
                 "options": {
                     "cwd": "."

@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 
   printf("\nEnter the temperature: ");
   scanf("%f", &inputTemp);
-
+  
   if (inputUnit == 'C'){
     temp = (inputTemp * 9 / 5) + 32;
     unit = 'F';
@@ -21,7 +21,7 @@ int main(int argc, char const *argv[])
     temp = (inputTemp -32) * 5 / 9;
     unit = 'C';
   } else {
-    printf("Not a valid temperature unit %c", unit);
+    printf("Not a valid temperature unit %c", inputUnit);
     return 1;
   }
   printf("%.2fdeg%c -> %.2fdeg%c", inputTemp, inputUnit, temp, unit);

@@ -39,7 +39,7 @@ int main(int argc, char const *argv[])
   Student students[] = {student0, student1, student2, student3};
 
   printf("Student information:\n");
-  for (int i = 0; i < sizeof(students)/sizeof(students[0]); i++)
+  for (size_t i = 0; i < sizeof(students)/sizeof(students[0]); i++)
   {
     printf("  * %-12s\tgpa=%.1f\n", students[i].name, students[i].gpa);
   }

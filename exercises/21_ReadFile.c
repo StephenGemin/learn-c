@@ -5,7 +5,7 @@
 
 int main(int argc, char const *argv[])
 {
-    const char *file = ".data/readfile.txt";
+    const char *file = "../data/readfile.txt";
     FILE *pF = fopen(file, "r");
     char buffer[BUFFER_SIZE];
 

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <dirent.h>
 #include <limits.h>
-#include "project_paths.h"
+#include "paths.h"
 
 void list_data_files() {
     const char *data_file = get_data_path();;

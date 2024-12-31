@@ -1,7 +1,8 @@
-#ifndef PROJECT_PATHS_H
-#define PROJECT_PATHS_H
+#ifndef PATHS_H
+#define PATHS_H
 
 #include <stddef.h>
+#define _POSIX_C_SOURCE 200809L
 
 /**
  * Retrieves the absolute path to the current project directory.

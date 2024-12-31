@@ -3,7 +3,8 @@
 
 #define NUM_UNITS 3
 
-const char SUPPORTED_UNITS[NUM_UNITS] = {'C', 'F', 'K'};
+// ‘%s’ directive argument is not a nul-terminated string [-Werror=format-overflow=]
+const char SUPPORTED_UNITS[NUM_UNITS+1] = {'C', 'F', 'K'};
 
 typedef struct {
   char from;
@@ -27,7 +28,7 @@ Conversion conversions[] = {
   {'K', 'C', k_to_c}, {'K', 'F', k_to_f}, {'K', 'K', k_to_k},
 };
 
-#define NUM_CONVERSIONS (sizeof(conversions) / sizeof(Conversion))
+#define NUM_CONVERSIONS ((int)(sizeof(conversions) / sizeof(Conversion)))
 _Static_assert(NUM_CONVERSIONS == NUM_UNITS * NUM_UNITS, 
                "Error: NUM_CONVERSIONS does not match the expected permutations.");
 
@@ -54,11 +55,11 @@ int main(int argc, char const *argv[])
   char inputUnit, outUnit;
   float inputTemp, temp;
 
-  printf("\nEnter the input temperature unit %c: ", SUPPORTED_UNITS);
+  printf("\nEnter the input temperature unit %s: ", SUPPORTED_UNITS);
   scanf(" %c", &inputUnit);
   inputUnit = toupper(inputUnit);
 
-  printf("\nEnter the output temperature unit %c: ", SUPPORTED_UNITS);
+  printf("\nEnter the output temperature unit %s: ", SUPPORTED_UNITS);
   scanf(" %c", &outUnit);
   outUnit = toupper(outUnit);
 
