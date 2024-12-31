@@ -1,6 +1,12 @@
-# Compiler and flags
 CC = gcc
-CFLAGS = -g -I./src -Wall -Wextra -Werror -Wno-unused-variable -Wno-unused-but-set-variable -Wno-implicit-function-declaration -Wno-int-conversion -Wno-unused-parameter
+WARNING_FLAGS= -Wall -Wextra -Werror
+IGNORE_FLAGS = \
+	-Wno-unused-variable \
+	-Wno-unused-but-set-variable \
+	-Wno-implicit-function-declaration \
+	-Wno-int-conversion \
+	-Wno-unused-parameter
+CFLAGS = -g -I./src $(WARNING_FLAGS) $(IGNORE_FLAGS)
 
 # Directories
 EXERCISES_DIR = exercises
@@ -14,10 +20,8 @@ REUSABLE_SRC = $(wildcard $(SRC_DIR)/*.c)
 # Object files
 REUSABLE_OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(REUSABLE_SRC))
 
-# Executables (one for each exercise)
 EXERCISE_EXES = $(patsubst $(EXERCISES_DIR)/%.c, $(BUILD_DIR)/%, $(EXERCISES))
 
-# Default target
 all: $(EXERCISE_EXES)
 
 # Rule to build each executable
@@ -35,14 +39,10 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Run a specific program
 run: $(BUILD_DIR)/$(program)
 	./$(BUILD_DIR)/$(program)
 
-# Clean target to remove build artifacts
 clean:
 	rm -rf $(BUILD_DIR)
 
-# Phony targets
 .PHONY: all clean run
-
